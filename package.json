@@ -1,0 +1,22 @@
+{
+  "name": "thanosbot",
+  "version": "1.0.0",
+  "description": "Discord bot that will ban half of the server members.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MatthewBorinsky/ThanosBot.git"
+  },
+  "author": "MatthewBorinsky",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MatthewBorinsky/ThanosBot/issues"
+  },
+  "homepage": "https://github.com/MatthewBorinsky/ThanosBot#readme",
+  "dependencies": {
+    "discord.js": "^14.14.1"
+  }
+}
