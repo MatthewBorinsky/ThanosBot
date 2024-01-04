@@ -48,11 +48,30 @@ module.exports = {
                 //     }
                 // }
                 if (confirmation.customId === 'confirm') {
-                    await confirmation.update({ content: 'Goodbye little one.', components: [] });  // 'Peace, at last.'
+                    // await confirmation.deferReply();
+                    await confirmation.update({ content: 'Goodbye little one.', components: [] });
+                    const guild = interaction.guild;
+                    console.log('done1');
+                    const members = await guild.members.fetch();
+                    console.log('done2');
+                    const total = guild.memberCount;
+                    console.log('done3');
+                    if (total > 2){
+                        const randMembers = members.random(Math.floor(total / 2));
+                        randMembers.forEach(randMember => {
+                            guildId.ban(randMember);
+                        })
+                        console.log('done4');
+                        await confirmation.followUp({content: 'Peace, at last.'});
+                    } else{
+                        await confirmation.followUp({content: 'There are not enough people here.'});
+                    }
+                    
                 } else if (confirmation.customId === 'cancel') {
                     await confirmation.update({ content: 'You have all been spared.', components: [] });
                 }
             } catch (e) {
+                console.log(e);
                 await interaction.editReply({ content: 'Putting the gauntlet down, confirmation not received within 1 minute.', components: [] });
             }
 
